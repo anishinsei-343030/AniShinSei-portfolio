@@ -693,9 +693,9 @@ body::before {
     }
 
     .profile-page .social-media a {
-        width: 2rem;
-        height: 2rem;
-        font-size: 1rem;
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1.2rem;
     }
 
     .btn {
@@ -750,6 +750,8 @@ body::before {
 
     .photo-frame {
         border-radius: .3rem;
+        max-width: 90%;
+        max-height: 85%;
     }
 
     .quote-box p {
@@ -778,7 +780,7 @@ body::before {
     }
 
     .contact-box textarea {
-        height: 8rem;
+        height: 6rem;
     }
 
     .number-page {
@@ -787,5 +789,163 @@ body::before {
 
     .title {
         font-size: 1.2rem;
+    }
+
+    .nextprev-btn {
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: 2.5rem;
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
+
+    .nextprev-btn.back {
+        left: 0.5rem;
+    }
+
+    .back-profile {
+        width: 2.75rem;
+        height: 2.75rem;
+        font-size: 1.3rem;
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+@media (max-height: 500px) {
+    .wrapper {
+        height: 85vh;
+        padding: 0.5rem;
+    }
+
+    .book .book-page {
+        padding: 0.5rem;
+    }
+
+    .profile-page img {
+        max-width: 70px;
+    }
+
+    .profile-page h1 {
+        font-size: 1.2rem;
+    }
+
+    .profile-page h3 {
+        font-size: 0.85rem;
+    }
+
+    .profile-page p {
+        font-size: 0.7rem;
+    }
+
+    .profile-page .social-media {
+        margin: 0.3rem 0;
+    }
+
+    .profile-page .social-media a {
+        width: 2rem;
+        height: 2rem;
+        font-size: 0.9rem;
+    }
+
+    .btn {
+        width: 6rem;
+        height: 2rem;
+        font-size: 0.7rem;
+        margin: 0 0.2rem;
+    }
+
+    .title {
+        font-size: 1rem;
+    }
+
+    .services-box {
+        gap: 0.5rem;
+        margin-top: 0.5rem;
+    }
+
+    .services-box .services-content {
+        padding: 0.4rem;
+    }
+
+    .services-content i {
+        font-size: 1.5rem;
+    }
+
+    .services-content h3 {
+        font-size: 0.85rem;
+    }
+
+    .services-content p {
+        font-size: 0.7rem;
+    }
+
+    .skills-box {
+        gap: 0.5rem;
+    }
+
+    .skills-content h3 {
+        font-size: 0.85rem;
+    }
+
+    .skills-content .content span {
+        width: 3.5rem;
+        height: 3rem;
+        font-size: 0.6rem;
+    }
+
+    .skills-content .content span i {
+        font-size: 1.3rem;
+    }
+
+    .portfolio-box .img-box {
+        height: 5rem;
+    }
+
+    .nextprev-btn {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1.8rem;
+        bottom: 0.3rem;
+        right: 0.3rem;
+    }
+
+    .nextprev-btn.back {
+        left: 0.3rem;
+    }
+
+    .back-profile {
+        width: 2.2rem;
+        height: 2.2rem;
+        font-size: 1rem;
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
+
+    .quote-box p {
+        font-size: 0.8rem;
+    }
+
+    .quote-box i {
+        font-size: 1.5rem;
+    }
+
+    .photo-frame {
+        max-width: 85%;
+        max-height: 80%;
+    }
+
+    .contact-box .field {
+        font-size: 0.75rem;
+        padding: 0.4rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .contact-box textarea {
+        height: 5rem;
+    }
+
+    .number-page {
+        font-size: 0.7rem;
     }
 }
