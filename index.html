@@ -5,29 +5,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AniShinSei | AI Engineer Portfolio</title>
+  <meta name="description" content="AniShinSei — AI Engineer & Python Developer. Building anime-inspired AI companions, autonomous agents, and intelligent software." />
+  <meta name="keywords" content="AI Engineer, Python Developer, Portfolio, AI Development, Web Development, Game Development, Automation" />
+  <meta name="author" content="AniShinSei" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="AniShinSei | AI Engineer Portfolio" />
+  <meta property="og:description" content="Building anime-inspired AI companions, autonomous agents, and intelligent software." />
+  <meta property="og:image" content="https://anishinsei-343030.github.io/AniShinSei-portfolio/Logo.png" />
+  <meta property="og:url" content="https://anishinsei-343030.github.io/AniShinSei-portfolio/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="AniShinSei | AI Engineer Portfolio" />
+  <meta name="twitter:description" content="Building anime-inspired AI companions, autonomous agents, and intelligent software." />
+  <meta name="twitter:image" content="https://anishinsei-343030.github.io/AniShinSei-portfolio/Logo.png" />
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "AniShinSei",
+    "jobTitle": "AI Engineer",
+    "description": "Building anime-inspired AI companions, autonomous agents, and intelligent software.",
+    "url": "https://anishinsei-343030.github.io/AniShinSei-portfolio/",
+    "image": "https://anishinsei-343030.github.io/AniShinSei-portfolio/Logo.png",
+    "sameAs": [
+      "https://www.facebook.com/ani.shin.sei",
+      "https://www.instagram.com/shin.sei30_sayz/",
+      "https://t.me/Anishinsei",
+      "https://www.youtube.com/@AniShinSei"
+    ]
+  }
+  </script>
 </head>
 
 <body>
-  <div class="wrapper">
+  <main class="wrapper">
     <div class="cover cover-left"></div>
     <div class="cover cover-right"></div>
 
     <div class="book">
-      <!-- profile page -->
-      <div class="book-page page-left">
+
+      <!-- PROFILE PAGE -->
+      <article class="book-page page-left" aria-label="Profile page">
         <div class="profile-page">
-          <img src="./Logo.png" alt="" />
+          <picture>
+            <source srcset="./Logo.webp" type="image/webp">
+            <img src="./Logo.png" alt="AniShinSei avatar" loading="eager" />
+          </picture>
           <h1>AniShinSei</h1>
           <h3>AI Engineer / Python Developer</h3>
 
-          <div class="social-media">
-            <a href="https://www.facebook.com/ani.shin.sei"><i class="bx bxl-facebook"></i></a>
-            <a href="https://www.instagram.com/shin.sei30_sayz/"><i class="bx bxl-instagram"></i></a>
-            <a href="https://t.me/Anishinsei"><i class="bx bxl-telegram"></i></a>
-            <a href="https://www.youtube.com/@AniShinSei"><i class="bx bxl-youtube"></i></a>
-          </div>
+          <nav class="social-media" aria-label="Social media links">
+            <a href="https://www.facebook.com/ani.shin.sei" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+            <a href="https://www.instagram.com/shin.sei30_sayz/" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="https://t.me/Anishinsei" aria-label="Telegram"><i class="bx bxl-telegram"></i></a>
+            <a href="https://www.youtube.com/@AniShinSei" aria-label="YouTube"><i class="bx bxl-youtube"></i></a>
+          </nav>
 
           <p>
             Building anime-inspired AI companions, autonomous agents, and
@@ -36,214 +71,220 @@
           </p>
 
           <div class="btn-box">
-            <a href="#" class="btn">Download CV</a>
+            <a href="./AniShinSei_CV.pdf" class="btn" id="download-cv" download>Download CV</a>
             <a href="#" class="btn contact-me">Contact Me!</a>
           </div>
         </div>
-      </div>
+      </article>
 
-      <!-- page 1 & 2 -->
+      <!-- SPREAD 1: SERVICES / SKILLS -->
       <div class="book-page page-right turn" id="turn-1">
-        <!-- page 1 (my services) -->
         <div class="page-front">
-          <h1 class="title">My Services</h1>
+          <section aria-label="My Services">
+            <h1 class="title">My Services</h1>
 
-          <div class="services-box">
-            <div class="services-content">
-              <i class="bx bx-brain"></i>
-              <h3>AI Development</h3>
-              <p>
-                Custom AI solutions, LLM integration, and intelligent
-                automation systems tailored to your needs.
-              </p>
-              <a href="#" class="btn">Read More</a>
-            </div>
+            <div class="services-box">
+              <div class="services-content">
+                <i class="bx bx-brain"></i>
+                <h3>AI Development</h3>
+                <p>Custom AI solutions, LLM integration, and intelligent automation systems tailored to your needs.</p>
+                <div class="more-text">
+                  <p>Specializing in large language model fine-tuning, RAG pipeline development, and custom AI agent architectures. From chatbots to complex decision systems — I build AI that delivers results.</p>
+                </div>
+                <a href="#" class="btn read-more">Read More</a>
+              </div>
 
-            <div class="services-content">
-              <i class="bx bx-code-alt"></i>
-              <h3>Web Development</h3>
-              <p>
-                Full-stack web applications with modern frameworks,
-                interactive 3D experiences, and clean UI/UX.
-              </p>
-              <a href="#" class="btn">Read More</a>
-            </div>
+              <div class="services-content">
+                <i class="bx bx-code-alt"></i>
+                <h3>Web Development</h3>
+                <p>Full-stack web applications with modern frameworks, interactive 3D experiences, and clean UI/UX.</p>
+                <div class="more-text">
+                  <p>End-to-end web solutions using modern stacks. Responsive, performant, and accessible interfaces with seamless backend integration. From landing pages to complex dashboards.</p>
+                </div>
+                <a href="#" class="btn read-more">Read More</a>
+              </div>
 
-            <div class="services-content">
-              <i class="bx bx-joystick"></i>
-              <h3>Game Development</h3>
-              <p>
-                Anime-inspired games, interactive experiences, and
-                game AI systems built for engaging gameplay.
-              </p>
-              <a href="#" class="btn">Read More</a>
-            </div>
+              <div class="services-content">
+                <i class="bx bx-joystick"></i>
+                <h3>Game Development</h3>
+                <p>Anime-inspired games, interactive experiences, and game AI systems built for engaging gameplay.</p>
+                <div class="more-text">
+                  <p>Creating immersive game experiences with custom mechanics, AI-driven NPCs, and compelling narratives. Proficient in multiple game engines and frameworks for 2D and 3D development.</p>
+                </div>
+                <a href="#" class="btn read-more">Read More</a>
+              </div>
 
-            <div class="services-content">
-              <i class="bx bx-bot"></i>
-              <h3>Automation</h3>
-              <p>
-                Workflow automation, voice AI systems, and autonomous
-                agents that streamline complex operations.
-              </p>
-              <a href="#" class="btn">Read More</a>
+              <div class="services-content">
+                <i class="bx bx-bot"></i>
+                <h3>Automation</h3>
+                <p>Workflow automation, voice AI systems, and autonomous agents that streamline complex operations.</p>
+                <div class="more-text">
+                  <p>Designing and deploying automated workflows that eliminate repetitive tasks. Voice AI integration, intelligent document processing, and custom automation pipelines for any scale.</p>
+                </div>
+                <a href="#" class="btn read-more">Read More</a>
+              </div>
             </div>
-          </div>
+          </section>
 
           <span class="number-page">1</span>
-
-          <!-- next button -->
-          <span class="nextprev-btn" data-page="turn-1">
+          <span class="nextprev-btn" data-page="turn-1" aria-label="Next page">
             <i class="bx bx-chevron-right"></i>
           </span>
-
         </div>
-        <!-- page 2 (my skills) -->
+
         <div class="page-back">
-          <h1 class="title">My Skills</h1>
+          <section aria-label="My Skills">
+            <h1 class="title">My Skills</h1>
 
-          <div class="skills-box">
-            <div class="skills-content">
-              <h3>AI & ML</h3>
-              <div class="content">
-                <span><i class="bx bxl-python"></i>Python</span>
-                <span><i class="bx bx-brain"></i>LLMs</span>
-                <span><i class="bx bx-microphone"></i>Voice AI</span>
-                <span><i class="bx bx-bot"></i>AI Agents</span>
+            <div class="skills-box">
+              <div class="skills-content">
+                <h3>AI & ML</h3>
+                <div class="content">
+                  <span><i class="bx bxl-python"></i>Python</span>
+                  <span><i class="bx bx-brain"></i>LLMs</span>
+                  <span><i class="bx bx-microphone"></i>Voice AI</span>
+                  <span><i class="bx bx-bot"></i>AI Agents</span>
+                </div>
+              </div>
+
+              <div class="skills-content">
+                <h3>Development</h3>
+                <div class="content">
+                  <span><i class="bx bxl-git"></i>Git</span>
+                  <span><i class="bx bxl-tux"></i>Linux</span>
+                  <span><i class="bx bx-cog"></i>Automation</span>
+                  <span><i class="bx bx-joystick"></i>Game Dev</span>
+                </div>
+              </div>
+
+              <div class="skills-content">
+                <h3>Web</h3>
+                <div class="content">
+                  <span><i class="bx bxl-html5"></i>HTML</span>
+                  <span><i class="bx bxl-css3"></i>CSS</span>
+                  <span><i class="bx bxl-javascript"></i>JS</span>
+                  <span><i class="bx bx-data"></i>Full-Stack</span>
+                </div>
               </div>
             </div>
-
-            <div class="skills-content">
-              <h3>Development</h3>
-              <div class="content">
-                <span><i class="bx bxl-git"></i>Git</span>
-                <span><i class="bx bxl-tux"></i>Linux</span>
-                <span><i class="bx bx-cog"></i>Automation</span>
-                <span><i class="bx bx-joystick"></i>Game Dev</span>
-              </div>
-            </div>
-
-            <div class="skills-content">
-              <h3>Web</h3>
-              <div class="content">
-                <span><i class="bx bxl-html5"></i>HTML</span>
-                <span><i class="bx bxl-css3"></i>CSS</span>
-                <span><i class="bx bxl-javascript"></i>JS</span>
-                <span><i class="bx bx-data"></i>Full-Stack</span>
-              </div>
-            </div>
-          </div>
+          </section>
 
           <span class="number-page">2</span>
-
-          <!-- next button -->
-          <span class="nextprev-btn back" data-page="turn-1">
+          <span class="nextprev-btn back" data-page="turn-1" aria-label="Previous page">
             <i class="bx bx-chevron-left"></i>
           </span>
         </div>
       </div>
 
-      <!-- page 3 & 4 -->
+      <!-- SPREAD 2: PHOTO / QUOTE -->
       <div class="book-page page-right turn" id="turn-2">
-        <!-- page 3 (photo) -->
         <div class="page-front">
-          <div class="photo-box">
-            <div class="photo-frame">
-              <img src="AniShinSei.png" alt="AniShinSei">
+          <section aria-label="Photo gallery">
+            <div class="photo-box">
+              <div class="photo-frame">
+                <picture>
+                  <source srcset="./AniShinSei.webp" type="image/webp">
+                  <img src="AniShinSei.png" alt="AniShinSei character artwork" loading="lazy">
+                </picture>
+              </div>
             </div>
-          </div>
+          </section>
 
           <span class="number-page">3</span>
-
-          <!-- next button -->
-          <span class="nextprev-btn" data-page="turn-2">
+          <span class="nextprev-btn" data-page="turn-2" aria-label="Next page">
             <i class="bx bx-chevron-right"></i>
           </span>
         </div>
 
-        <!-- page 4 (photo back - quote) -->
         <div class="page-back">
-          <div class="quote-box">
-            <i class="bx bxs-quote-alt-left"></i>
-            <p>Every AI has a purpose. Together, they become something greater.</p>
-            <span>— AniShinSei</span>
-          </div>
+          <section aria-label="Personal quote">
+            <div class="quote-box">
+              <i class="bx bxs-quote-alt-left" aria-hidden="true"></i>
+              <p>Every AI has a purpose. Together, they become something greater.</p>
+              <span>— AniShinSei</span>
+            </div>
+          </section>
 
           <span class="number-page">4</span>
-
-          <!-- next button -->
-          <span class="nextprev-btn back" data-page="turn-2">
+          <span class="nextprev-btn back" data-page="turn-2" aria-label="Previous page">
             <i class="bx bx-chevron-left"></i>
           </span>
         </div>
       </div>
 
-      <!-- page 5 & 6 -->
+      <!-- SPREAD 3: PROJECT / CONTACT -->
       <div class="book-page page-right turn" id="turn-3">
-        <!-- page 5 (latest project) -->
         <div class="page-front">
-          <h1 class="title">Latest Project</h1>
+          <section aria-label="Latest project">
+            <h1 class="title">Latest Project</h1>
 
-          <div class="portfolio-box">
-            <div class="img-box">
-              <img src="Wilder.png" alt="Wilder">
-            </div>
-
-            <div class="info-box">
-              <div class="info-title">
-                <h3>Wilder</h3>
-                <a href="https://wilder-nu.vercel.app">Live Preview <i class="bx bx-link-external"></i></a>
+            <div class="portfolio-box">
+              <div class="img-box">
+                <picture>
+                  <source srcset="./Wilder.webp" type="image/webp">
+                  <img src="Wilder.png" alt="Wilder — cinematic nature experience project screenshot" loading="lazy">
+                </picture>
               </div>
-              <p>Tech Used: HTML, CSS, JavaScript</p>
-              <p>A cinematic nature experience — an immersive journey through Earth's most breathtaking landscapes. Built with pure HTML, CSS, and JavaScript, featuring smooth scrolling, atmospheric design, and responsive visuals.</p>
-            </div>
-            <div class="btn-box">
-              <a href="https://github.com/anishinsei-343030/wilder" class="btn">Source Code</a>
-              <a href="https://github.com/anishinsei-343030?tab=repositories" class="btn">More Projects</a>
 
+              <div class="info-box">
+                <div class="info-title">
+                  <h3>Wilder</h3>
+                  <a href="https://wilder-nu.vercel.app">Live Preview <i class="bx bx-link-external"></i></a>
+                </div>
+                <p>Tech Used: HTML, CSS, JavaScript</p>
+                <p>A cinematic nature experience — an immersive journey through Earth's most breathtaking landscapes. Built with pure HTML, CSS, and JavaScript, featuring smooth scrolling, atmospheric design, and responsive visuals.</p>
+              </div>
+              <div class="btn-box">
+                <a href="https://github.com/anishinsei-343030/wilder" class="btn">Source Code</a>
+                <a href="https://github.com/anishinsei-343030?tab=repositories" class="btn">More Projects</a>
+              </div>
             </div>
-          </div>
+          </section>
 
           <span class="number-page">5</span>
-
-          <!-- next button -->
-          <span class="nextprev-btn" data-page="turn-3">
+          <span class="nextprev-btn" data-page="turn-3" aria-label="Next page">
             <i class="bx bx-chevron-right"></i>
           </span>
         </div>
 
-
-        <!-- page 6 (contact me!) -->
         <div class="page-back">
           <h1 class="title">Contact Me!</h1>
 
           <div class="contact-box">
-            <form action="">
-              <input type="text" class="field" placeholder="Full Name" required>
-              <input type="email" class="field" placeholder="Email Address" required>
-              <textarea name="" id="" cols="30" rows="10" class="field" placeholder="Your Message"></textarea>
-              <input type="submit" value="Send Message" class="btn">
+            <form action="https://formspree.io/f/mdaqzlvg" method="POST">
+              <label for="name" class="sr-only">Full Name</label>
+              <input type="text" id="name" name="name" class="field" placeholder="Full Name" required>
+
+              <label for="email" class="sr-only">Email Address</label>
+              <input type="email" id="email" name="email" class="field" placeholder="Email Address" required>
+
+              <label for="message" class="sr-only">Your Message</label>
+              <textarea id="message" name="message" cols="30" rows="10" class="field" placeholder="Your Message" required></textarea>
+
+              <input type="submit" value="Send Message" class="btn" id="send-btn">
             </form>
+            <p style="margin-top:1rem;font-size:0.9rem;color:var(--second-text-color)">
+              Or reach me directly on
+              <a href="https://t.me/Anishinsei" style="color:var(--main-color);font-weight:600" target="_blank" rel="noopener">Telegram</a>
+            </p>
           </div>
 
           <span class="number-page">6</span>
-
-          <!-- next button -->
-          <span class="nextprev-btn back" data-page="turn-3">
+          <span class="nextprev-btn back" data-page="turn-3" aria-label="Previous page">
             <i class="bx bx-chevron-left"></i>
           </span>
 
-          <a href="#" class="back-profile">
+          <a href="#" class="back-profile" aria-label="Back to profile">
             <p>Profile</p>
             <i class="bx bxs-user"></i>
           </a>
         </div>
-
       </div>
-    </div>
-  </div>
 
-  <!-- script -->
+      <div class="page-indicator" aria-live="polite">Page 1-2 of 6</div>
+    </div>
+  </main>
+
   <script src="script.js"></script>
 </body>
 

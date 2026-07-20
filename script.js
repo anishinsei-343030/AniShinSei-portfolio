@@ -1,10 +1,19 @@
+const PAGE_TURN_DURATION = 1000;
 const pages = document.querySelectorAll('.book-page.page-right');
 const pageTurnBtn = document.querySelectorAll('.nextprev-btn');
 let currentPage = 0;
 let transitionTimeout = null;
+let isAnimating = false;
+let touchStartX = 0;
+let touchEndX = 0;
+const pageHashes = ['', 'services', 'skills', 'photo', 'quote', 'project', 'contact'];
+
+/* ── Page turn logic ── */
 
 pageTurnBtn.forEach((el) => {
     el.onclick = () => {
+        if (isAnimating) return;
+
         const pageId = el.getAttribute('data-page');
         const pageIdx = Array.from(pages).findIndex(p => p.id === pageId);
         const isBack = el.classList.contains('back');
@@ -16,7 +25,6 @@ pageTurnBtn.forEach((el) => {
             transitionTimeout = null;
         }
 
-        // Phase 1: flipping page on top while animating
         pages.forEach((page, i) => {
             if (i === flippingPage) {
                 page.style.zIndex = 100;
@@ -34,7 +42,6 @@ pageTurnBtn.forEach((el) => {
             }
         });
 
-        // Phase 2: set final state after CSS transition completes
         transitionTimeout = setTimeout(() => {
             pages.forEach((page, i) => {
                 if (i < newCurrent) {
@@ -53,35 +60,157 @@ pageTurnBtn.forEach((el) => {
             });
             currentPage = newCurrent;
             transitionTimeout = null;
-        }, 1000);
+            updateHash(currentPage);
+            updatePageIndicator(currentPage);
+        }, PAGE_TURN_DURATION);
     };
 });
 
+/* ── Shortcut: Contact Me! ── */
+
 const contactMeBtn = document.querySelector('.btn.contact-me');
-contactMeBtn.onclick = () => {
-    if (transitionTimeout) {
-        clearTimeout(transitionTimeout);
-        transitionTimeout = null;
-    }
-    currentPage = pages.length;
-    pages.forEach((page, i) => {
-        page.classList.add('turn');
-        page.style.zIndex = i;
-    });
-};
+if (contactMeBtn) {
+    contactMeBtn.onclick = () => {
+        if (isAnimating) return;
+        if (transitionTimeout) {
+            clearTimeout(transitionTimeout);
+            transitionTimeout = null;
+        }
+        currentPage = pages.length;
+        pages.forEach((page, i) => {
+            page.classList.add('turn');
+            page.style.zIndex = i;
+        });
+        updateHash(currentPage);
+        updatePageIndicator(currentPage);
+    };
+}
+
+/* ── Shortcut: Back to Profile ── */
 
 const backProfileBtn = document.querySelector('.back-profile');
-backProfileBtn.onclick = () => {
-    if (transitionTimeout) {
-        clearTimeout(transitionTimeout);
-        transitionTimeout = null;
+if (backProfileBtn) {
+    backProfileBtn.onclick = () => {
+        if (isAnimating) return;
+        if (transitionTimeout) {
+            clearTimeout(transitionTimeout);
+            transitionTimeout = null;
+        }
+        currentPage = 0;
+        pages.forEach((page, i) => {
+            page.classList.remove('turn');
+            page.style.zIndex = i === 0 ? 100 : 90 - i;
+        });
+        updateHash(currentPage);
+        updatePageIndicator(currentPage);
+    };
+}
+
+
+
+/* ── Read More toggles ── */
+
+document.querySelectorAll('.read-more').forEach((btn) => {
+    btn.onclick = (e) => {
+        e.preventDefault();
+        const content = btn.parentElement;
+        const moreText = content.querySelector('.more-text');
+        if (moreText) {
+            const isExpanded = moreText.classList.toggle('expanded');
+            btn.textContent = isExpanded ? 'Show Less' : 'Read More';
+        }
+    };
+});
+
+/* ── Keyboard navigation ── */
+
+document.addEventListener('keydown', (e) => {
+    if (isAnimating) return;
+    if (e.key === 'ArrowRight') {
+        const nextBtn = document.querySelector('.nextprev-btn:not(.back)');
+        if (nextBtn) nextBtn.click();
+    } else if (e.key === 'ArrowLeft') {
+        const prevBtn = document.querySelector('.nextprev-btn.back');
+        if (prevBtn) prevBtn.click();
     }
-    currentPage = 0;
-    pages.forEach((page, i) => {
-        page.classList.remove('turn');
-        page.style.zIndex = i === 0 ? 100 : 90 - i;
-    });
-};
+});
+
+/* ── Touch swipe support ── */
+
+document.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+}, { passive: true });
+
+document.addEventListener('touchend', (e) => {
+    if (isAnimating) return;
+    touchEndX = e.changedTouches[0].screenX;
+    const swipeDistance = touchStartX - touchEndX;
+
+    if (Math.abs(swipeDistance) > 50) {
+        if (swipeDistance > 0) {
+            const nextBtn = document.querySelector('.nextprev-btn:not(.back)');
+            if (nextBtn) nextBtn.click();
+        } else {
+            const prevBtn = document.querySelector('.nextprev-btn.back');
+            if (prevBtn) prevBtn.click();
+        }
+    }
+}, { passive: true });
+
+/* ── Page indicator ── */
+
+function updatePageIndicator(page) {
+    const indicator = document.querySelector('.page-indicator');
+    if (indicator) {
+        const leftPage = page * 2 + 1;
+        indicator.textContent = `Page ${leftPage}-${leftPage + 1} of ${pages.length * 2}`;
+    }
+}
+
+/* ── URL hash routing ── */
+
+function updateHash(page) {
+    const hash = pageHashes[page] || '';
+    const url = hash ? `#${hash}` : window.location.pathname;
+    history.replaceState(null, '', url);
+}
+
+/* ── Form submission ── */
+
+const contactForm = document.querySelector('.contact-box form');
+if (contactForm) {
+    contactForm.onsubmit = async (e) => {
+        e.preventDefault();
+        const data = new FormData(contactForm);
+        const submitBtn = contactForm.querySelector('#send-btn');
+        const originalText = submitBtn.value;
+
+        submitBtn.value = 'Sending...';
+        submitBtn.disabled = true;
+
+        try {
+            const res = await fetch(contactForm.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' },
+            });
+
+            if (res.ok) {
+                contactForm.innerHTML = '<p class="success-message">Message sent! I\'ll get back to you soon. ✨</p>';
+            } else {
+                alert('Something went wrong. Please try again later.');
+                submitBtn.value = originalText;
+                submitBtn.disabled = false;
+            }
+        } catch {
+            alert('Network error. Please check your connection.');
+            submitBtn.value = originalText;
+            submitBtn.disabled = false;
+        }
+    };
+}
+
+/* ── Auto-open animation ── */
 
 const coverRight = document.querySelector('.cover.cover-right');
 
@@ -93,6 +222,7 @@ setTimeout(() => {
     coverRight.style.zIndex = -1;
 }, 2800);
 
+isAnimating = true;
 pages.forEach((_, index) => {
     const pageIndex = pages.length - 1 - index;
     setTimeout(() => {
@@ -103,7 +233,18 @@ pages.forEach((_, index) => {
                 pages.forEach((page, i) => {
                     page.style.zIndex = i === 0 ? 100 : 90 - i;
                 });
+                updatePageIndicator(currentPage);
+                isAnimating = false;
             }, 500);
         }
     }, (index + 1) * 200 + 2100);
+});
+
+/* ── Hash-based deep link on load ── */
+
+window.addEventListener('load', () => {
+    const hash = window.location.hash.slice(1);
+    if (hash === 'contact' && contactMeBtn) {
+        setTimeout(() => contactMeBtn.click(), 3000);
+    }
 });
