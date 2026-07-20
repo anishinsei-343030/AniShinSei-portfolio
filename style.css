@@ -255,6 +255,7 @@ body::before {
     height: 100%;
     background: var(--pages-color);
     padding: 1.5rem 2rem;
+    overflow: hidden;
 }
 
 .book-page .page-front {
@@ -317,7 +318,10 @@ body::before {
     display: flex;
     flex-direction: column;
     height: 100%;
-    overflow: hidden;
+}
+
+.book-page .page-front > section[aria-label="Photo gallery"] {
+    height: 100%;
 }
 
 .services-box .services-content {
@@ -354,22 +358,6 @@ body::before {
 .services-content .btn:hover {
     background-color: transparent;
     color: var(--main-color);
-}
-
-/* read more expandable text */
-.more-text {
-    display: none;
-}
-
-.more-text p {
-    font-size: 0.85rem;
-    color: var(--second-text-color);
-    line-height: 1.5;
-    margin: 0.5rem 0 0;
-}
-
-.more-text.expanded {
-    display: block;
 }
 
 /* skilss box */

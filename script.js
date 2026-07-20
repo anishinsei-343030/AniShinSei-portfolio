@@ -108,20 +108,6 @@ if (backProfileBtn) {
 
 
 
-/* ── Read More toggles ── */
-
-document.querySelectorAll('.read-more').forEach((btn) => {
-    btn.onclick = (e) => {
-        e.preventDefault();
-        const content = btn.parentElement;
-        const moreText = content.querySelector('.more-text');
-        if (moreText) {
-            const isExpanded = moreText.classList.toggle('expanded');
-            btn.textContent = isExpanded ? 'Show Less' : 'Read More';
-        }
-    };
-});
-
 /* ── Keyboard navigation ── */
 
 document.addEventListener('keydown', (e) => {
