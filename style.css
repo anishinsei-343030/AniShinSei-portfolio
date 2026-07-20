@@ -347,21 +347,18 @@ body::before {
 
 /* read more expandable text */
 .more-text {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, margin 0.4s ease;
-    margin: 0;
-}
-
-.more-text.expanded {
-    max-height: 10rem;
-    margin: 0.5rem 0;
+    display: none;
 }
 
 .more-text p {
     font-size: 0.85rem;
     color: var(--second-text-color);
     line-height: 1.5;
+    margin: 0.5rem 0 0;
+}
+
+.more-text.expanded {
+    display: block;
 }
 
 /* skilss box */
