@@ -307,9 +307,17 @@ body::before {
     flex-wrap: wrap;
     gap: 1.5rem;
     margin-top: 2rem;
-    max-height: calc(100% - 3rem);
+    flex: 1;
+    min-height: 0;
     overflow-y: auto;
     padding-right: 0.3rem;
+}
+
+.book-page .page-front > section[aria-label="My Services"] {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
 }
 
 .services-box .services-content {
